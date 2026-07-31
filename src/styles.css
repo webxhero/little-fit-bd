@@ -1,0 +1,211 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Little Feet BD — design system.
+ * All brand colors live here as oklch tokens. Never hardcode colors in components.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 6px);
+  --radius-md: calc(var(--radius) - 3px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 14px);
+
+  --font-sans: "Jost", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "DM Serif Display", Georgia, "Times New Roman", serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-light: var(--primary-light);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-warm: var(--warm);
+  --color-coral: var(--coral);
+  --color-heading: var(--heading);
+  --color-cream: var(--cream);
+  --color-sand: var(--sand);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --shadow-soft: 0 1px 2px rgb(92 59 39 / 0.04), 0 8px 24px -12px rgb(92 59 39 / 0.12);
+  --shadow-lift: 0 2px 6px rgb(92 59 39 / 0.06), 0 20px 40px -20px rgb(92 59 39 / 0.18);
+}
+
+:root {
+  --radius: 1rem;
+
+  /* #FFF9F2 */
+  --background: oklch(0.9835 0.0125 84.6);
+  /* #5F5B57 body text */
+  --foreground: oklch(0.4685 0.0068 67.5);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.4685 0.0068 67.5);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.4685 0.0068 67.5);
+
+  /* #8D9671 */
+  --primary: oklch(0.6353 0.0483 118.8);
+  --primary-foreground: oklch(0.9915 0.008 84.6);
+  /* #727B59 */
+  --primary-dark: oklch(0.5432 0.0492 119.6);
+  /* #AAB395 */
+  --primary-light: oklch(0.7449 0.0416 118.5);
+
+  /* #EDE3D6 */
+  --secondary: oklch(0.9296 0.0166 78.9);
+  --secondary-foreground: oklch(0.3486 0.0338 45.6);
+  /* #F8F2E8 cream */
+  --cream: oklch(0.9673 0.0134 84.3);
+  --sand: oklch(0.9296 0.0166 78.9);
+
+  --muted: oklch(0.9673 0.0134 84.3);
+  /* #8A8580 */
+  --muted-foreground: oklch(0.6151 0.0055 67.5);
+  --accent: oklch(0.9296 0.0166 78.9);
+  --accent-foreground: oklch(0.3486 0.0338 45.6);
+
+  /* #D7B38A */
+  --warm: oklch(0.7938 0.0596 71.6);
+  /* #E89A83 */
+  --coral: oklch(0.7657 0.0863 37.3);
+  /* #5C3B27 */
+  --heading: oklch(0.3486 0.0338 45.6);
+
+  /* #B85C52 */
+  --destructive: oklch(0.5666 0.1174 26.4);
+  --destructive-foreground: oklch(0.9915 0.008 84.6);
+  /* #56815E */
+  --success: oklch(0.5473 0.0678 148.5);
+
+  /* #E6DED3 */
+  --border: oklch(0.9095 0.0116 82.6);
+  --input: oklch(0.9095 0.0116 82.6);
+  --ring: oklch(0.6353 0.0483 118.8);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--color-heading);
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: var(--color-primary-light);
+    color: var(--color-heading);
+  }
+}
+
+@utility font-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+@utility container-page {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 84rem;
+  padding-inline: 1rem;
+
+  @media (min-width: 640px) {
+    padding-inline: 1.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    padding-inline: 2.5rem;
+  }
+}
+
+@utility section-y {
+  padding-block: 3.5rem;
+
+  @media (min-width: 1024px) {
+    padding-block: 5.5rem;
+  }
+}
+
+@utility card-surface {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-soft);
+}
+
+@utility hide-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes lf-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@utility animate-fade-up {
+  animation: lf-fade-up 0.5s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
