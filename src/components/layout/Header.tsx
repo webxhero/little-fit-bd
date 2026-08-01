@@ -91,26 +91,15 @@ export function Header() {
             <Menu size={20} />
           </button>
 
-          <Link href="/" className="flex shrink-0 items-center gap-2">
-
-  <Image
-    src="/logo.png"
-    alt="Little Feet Bangladesh"
-    width={40}
-    height={40}
-    className="h-10 w-10 object-contain"
-  />
-
-  <span className="hidden leading-none sm:block">
-    <span className="block font-display text-xl text-heading">
-      Little Feet
-    </span>
-    <span className="block text-[10px] uppercase tracking-[0.28em] text-primary-dark">
-      Bangladesh
-    </span>
-  </span>
-
-</Link>
+          <Link to="/" className="flex shrink-0 items-center gap-2" aria-label={`${site.name} home`}>
+            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary font-display text-lg text-primary-foreground">
+              lf
+            </span>
+            <span className="hidden leading-none sm:block">
+              <span className="block font-display text-xl text-heading">Little Feet</span>
+              <span className="block text-[10px] uppercase tracking-[0.28em] text-primary-dark">Bangladesh</span>
+            </span>
+          </Link>
 
           <form onSubmit={submitSearch} className="mx-auto hidden w-full max-w-xl items-center gap-2 rounded-xl border border-border bg-card px-3 lg:flex">
             <Search size={17} className="text-muted-foreground" aria-hidden="true" />
