@@ -92,9 +92,13 @@ export function Header() {
           </button>
 
           <Link to="/" className="flex shrink-0 items-center gap-2" aria-label={`${site.name} home`}>
-            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary font-display text-lg text-primary-foreground">
-              lf
-            </span>
+            <Image
+  src="/logo.png"
+  alt="Little Feet Bangladesh"
+  width={40}
+  height={40}
+  className="h-10 w-10 rounded-full object-cover"
+/>
             <span className="hidden leading-none sm:block">
               <span className="block font-display text-xl text-heading">Little Feet</span>
               <span className="block text-[10px] uppercase tracking-[0.28em] text-primary-dark">Bangladesh</span>
